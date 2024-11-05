@@ -8,7 +8,7 @@ import org.bson.types.ObjectId;
 import java.util.Date;
 import java.util.List;
 
-import database.MongoDBHelper;
+import nguyenanhduc.mobileapp.final_project_mobile.database.MongoDBHelper;
 
 public class GameSessionDAO {
     private static final String COLLECTION_NAME = "game_sessions";

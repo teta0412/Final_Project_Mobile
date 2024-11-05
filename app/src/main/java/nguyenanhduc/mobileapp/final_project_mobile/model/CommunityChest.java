@@ -13,7 +13,6 @@ import android.os.Build;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collections;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 import java.util.logging.Level;
@@ -27,11 +26,6 @@ import nguyenanhduc.mobileapp.final_project_mobile.config.SizeDisplay;
 import nguyenanhduc.mobileapp.final_project_mobile.activity.PlayActivity;
 
 import android.content.Context;
-import android.os.Build;
-import androidx.annotation.RequiresApi;
-import java.util.List;
-import java.util.Collections;
-import java.util.Random;
 
 import nguyenanhduc.mobileapp.final_project_mobile.database.DatabaseHelper;
 import nguyenanhduc.mobileapp.final_project_mobile.dao.CommunityChestCardDao;

@@ -1,4 +1,4 @@
-package database;
+package nguyenanhduc.mobileapp.final_project_mobile.database;
 
 import com.mongodb.ConnectionString;
 import com.mongodb.MongoClientSettings;

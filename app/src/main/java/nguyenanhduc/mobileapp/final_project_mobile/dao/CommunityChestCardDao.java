@@ -8,7 +8,6 @@ import java.util.List;
 
 import nguyenanhduc.mobileapp.final_project_mobile.model.CommunityChestCard;
 import nguyenanhduc.mobileapp.final_project_mobile.model.CommunityChest;
-import nguyenanhduc.mobileapp.final_project_mobile.model.Jail;
 
 public class CommunityChestCardDao {
     public static final String TABLE_NAME = "community_chest_cards";
