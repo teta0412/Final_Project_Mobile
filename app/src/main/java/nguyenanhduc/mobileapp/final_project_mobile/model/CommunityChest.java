@@ -26,61 +26,33 @@ import nguyenanhduc.mobileapp.final_project_mobile.R;
 import nguyenanhduc.mobileapp.final_project_mobile.config.SizeDisplay;
 import nguyenanhduc.mobileapp.final_project_mobile.activity.PlayActivity;
 
+import android.content.Context;
+import android.os.Build;
+import androidx.annotation.RequiresApi;
+import java.util.List;
+import java.util.Collections;
+import java.util.Random;
+
+import nguyenanhduc.mobileapp.final_project_mobile.database.DatabaseHelper;
+import nguyenanhduc.mobileapp.final_project_mobile.dao.CommunityChestCardDao;
+
 public class CommunityChest extends City {
     private static List<CommunityChestCard> cards;
-    private static int iter  = 0;
+    private static int iter = 0;
     private static Player visitor;
+    private CommunityChestCardDao cardDao;
 
     @RequiresApi(api = Build.VERSION_CODES.N)
-    public CommunityChest(int position, String cityName) {
-        super(position,cityName,0);
-        cards = new LinkedList<CommunityChestCard>();
+    public CommunityChest(int position, String cityName, Context context) {
+        super(position, cityName, 0);
+        DatabaseHelper dbHelper = DatabaseHelper.getInstance(context);
+        cardDao = new CommunityChestCardDao(dbHelper);
+        loadCardsFromDatabase();
+    }
 
-        CommunityChestCard temp = new CommunityChestCard(this,0,"From Sale of Stock.You get $50");
-        cards.add(temp);
-
-        temp = new CommunityChestCard(this,1,"Pay your Insurance Premium $50");
-        cards.add(temp);
-
-        temp = new CommunityChestCard(this,2,"Bank Error in your Favour.Collect $200");
-        cards.add(temp);
-
-        temp = new CommunityChestCard(this,3,"Pay a $10 Fine or Take a Chance Card");
-        cards.add(temp);
-
-        temp = new CommunityChestCard(this,4,"Go Back to Old Kent Road");
-        cards.add(temp);
-
-        temp = new CommunityChestCard(this,5,"Go to Jail.Move Directly to Jail.\nDo not Pass 'GO'.Do not Collect $200");
-        cards.add(temp);
-
-        temp = new CommunityChestCard(this,6,"Recieve Interest on 7% Preference Shares $25");
-        cards.add(temp);
-
-        temp = new CommunityChestCard(this,7,"Pay Hospital $100");
-        cards.add(temp);
-
-        temp = new CommunityChestCard(this,8,"Income Tax Refund.Collect $20");
-        cards.add(temp);
-
-        temp = new CommunityChestCard(this,9,"Advance to 'Go'.Collect $200");
-        cards.add(temp);
-
-        temp = new CommunityChestCard(this,10,"It is your Birthday.Collect $10 from Each Player");
-        cards.add(temp);
-
-        temp = new CommunityChestCard(this,11,"Annuity Matures.Collect $100");
-        cards.add(temp);
-
-        temp = new CommunityChestCard(this,12,"You inherit $100");
-        cards.add(temp);
-
-        temp = new CommunityChestCard(this,13,"Doctor's Fee.Pay $50");
-        cards.add(temp);
-
-        temp = new CommunityChestCard(this,14,"You have won Second Prize in a Beauty Contest.\nCollect $10");
-        cards.add(temp);
-
+    private void loadCardsFromDatabase() {
+        cards = cardDao.getAllCards(this);
+        // Maintain the same shuffling logic
         Collections.shuffle(cards, new Random(100));
     }
 

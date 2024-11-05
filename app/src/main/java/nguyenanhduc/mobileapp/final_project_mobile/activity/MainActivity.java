@@ -185,6 +185,7 @@ public class MainActivity extends AppCompatActivity {
                 logo.setVisibility(View.GONE);
                 name.setVisibility(View.GONE);
                 playButton.setVisibility(View.GONE);
+                leaderboardButton.setVisibility(View.GONE);
                 animationView.setVisibility(View.VISIBLE);
                 ((AnimationDrawable) animationView.getBackground()).start();
             }

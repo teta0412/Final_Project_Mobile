@@ -106,7 +106,7 @@ public class Board  {
                     }
                     case "monopoly.CommunityChest":
                     {
-                        cities.put(position,new CommunityChest(position,cityName));
+                        cities.put(position,new CommunityChest(position,cityName,context));
                         break;
                     }
                     case "monopoly.Chance":

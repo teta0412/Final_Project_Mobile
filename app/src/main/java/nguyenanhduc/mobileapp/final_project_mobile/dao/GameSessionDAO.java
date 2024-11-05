@@ -8,6 +8,8 @@ import org.bson.types.ObjectId;
 import java.util.Date;
 import java.util.List;
 
+import database.MongoDBHelper;
+
 public class GameSessionDAO {
     private static final String COLLECTION_NAME = "game_sessions";
 
@@ -19,7 +21,7 @@ public class GameSessionDAO {
                 .append("players", players)
                 .append("start_time", new Date())
                 .append("end_time", null) // Set to null initially
-                .append("winner_id", null) // Set to null initially
+                .append("player_id", null) // Set to null initially
                 .append("winner_score", 0); // Set to 0 initially
 
         collection.insertOne(sessionDoc);

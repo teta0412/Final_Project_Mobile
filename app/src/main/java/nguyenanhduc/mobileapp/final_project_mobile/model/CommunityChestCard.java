@@ -21,18 +21,18 @@ public class CommunityChestCard {
     private CommunityChest communityChest;
     int choice;
 
+    public CommunityChestCard(CommunityChest communityChest, int id, String details) {
+        this.communityChest = communityChest;
+        this.id = id;
+        this.details = details;
+    }
+
     public int getId() {
         return id;
     }
 
     public String getDetails() {
         return details;
-    }
-
-    public CommunityChestCard(CommunityChest communityChest, int id, String details) {
-        this.communityChest = communityChest;
-        this.id = id;
-        this.details = details;
     }
 
     public void callFunction() throws NoSuchMethodException, IllegalAccessException, IllegalArgumentException, InvocationTargetException

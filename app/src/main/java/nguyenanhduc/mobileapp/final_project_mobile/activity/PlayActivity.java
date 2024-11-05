@@ -438,13 +438,6 @@ public class PlayActivity extends AppCompatActivity implements OnClickListener, 
         TextView textView = dialog.findViewById(R.id.message);
         Button ok = dialog.findViewById(R.id.ok);
         Button cancel = dialog.findViewById(R.id.cancel);
-
-        /*Window window = dialog.getWindow();
-        WindowManager.LayoutParams wlp = window.getAttributes();
-
-        wlp.gravity = Gravity.CENTER;
-        wlp.flags &= ~WindowManager.LayoutParams.FLAG_DIM_BEHIND;
-        window.setAttributes(wlp);*/
         textView.setText(message);
         ok.setOnClickListener(new OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.M)
@@ -1045,6 +1038,7 @@ public class PlayActivity extends AppCompatActivity implements OnClickListener, 
 
     @Override
     public void onBackPressed() {
+        super.onBackPressed();
         final Dialog dialog = new Dialog(PlayActivity.this);
         dialog.setContentView(R.layout.playerquestion);
 

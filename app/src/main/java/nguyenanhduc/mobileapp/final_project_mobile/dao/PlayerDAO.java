@@ -7,6 +7,8 @@ import org.bson.Document;
 import org.bson.types.ObjectId;
 import java.util.Date;
 
+import database.MongoDBHelper;
+
 public class PlayerDAO {
     private static final String COLLECTION_NAME = "players";
 
