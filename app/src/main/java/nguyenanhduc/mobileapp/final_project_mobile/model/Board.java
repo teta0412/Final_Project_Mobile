@@ -109,20 +109,10 @@ public class Board  {
                         cities.put(position,new CommunityChest(position,cityName,context));
                         break;
                     }
-                    case "monopoly.Chance":
-                    {
-                        cities.put(position,new Chance(position,cityName));
-                        break;
-                    }
                     case "monopoly.Others":
                     {
                         int rent = Integer.parseInt(details[4]);
                         cities.put(position,new Others(position,cityName,rent));
-                        break;
-                    }
-                    case "monopoly.Station":
-                    {
-                        cities.put(position,new Station(position,cityName));
                         break;
                     }
                     case "monopoly.Utilities":

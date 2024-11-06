@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import java.util.ArrayList;
 import java.util.List;
 
+import nguyenanhduc.mobileapp.final_project_mobile.database.SQLiteHelper;
 import nguyenanhduc.mobileapp.final_project_mobile.model.CommunityChestCard;
 import nguyenanhduc.mobileapp.final_project_mobile.model.CommunityChest;
 
@@ -20,9 +21,9 @@ public class CommunityChestCardDao {
                     COLUMN_DETAILS + " TEXT NOT NULL" +
                     ")";
 
-    private nguyenanhduc.mobileapp.final_project_mobile.database.DatabaseHelper dbHelper;
+   private SQLiteHelper dbHelper;
 
-    public CommunityChestCardDao(nguyenanhduc.mobileapp.final_project_mobile.database.DatabaseHelper dbHelper) {
+    public CommunityChestCardDao(SQLiteHelper dbHelper) {
         this.dbHelper = dbHelper;
     }
 

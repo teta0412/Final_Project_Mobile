@@ -158,7 +158,7 @@
                   android:id="@+id/communitydisplay"
                   android:layout_width="60dp"
                   android:layout_height="45dp"
-                  android:src="@drawable/chancestack"
+                  android:src="@drawable/communitycardstack"
                   android:rotation="315"
                   android:layout_alignTop="@+id/twentyseven"
                   android:layout_alignLeft="@+id/thirtythree"/>

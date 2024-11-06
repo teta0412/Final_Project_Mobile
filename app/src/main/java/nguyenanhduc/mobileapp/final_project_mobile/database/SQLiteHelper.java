@@ -6,19 +6,19 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import nguyenanhduc.mobileapp.final_project_mobile.dao.CommunityChestCardDao;
 
-public class DatabaseHelper extends SQLiteOpenHelper {
+public class SQLiteHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "monopoly.db";
     private static final int DATABASE_VERSION = 1;
 
-    private static DatabaseHelper instance;
+    private static SQLiteHelper instance;
 
-    private DatabaseHelper(Context context) {
+    private SQLiteHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
-    public static synchronized DatabaseHelper getInstance(Context context) {
+    public static synchronized SQLiteHelper getInstance(Context context) {
         if (instance == null) {
-            instance = new DatabaseHelper(context.getApplicationContext());
+            instance = new SQLiteHelper(context.getApplicationContext());
         }
         return instance;
     }

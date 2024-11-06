@@ -27,7 +27,7 @@ import nguyenanhduc.mobileapp.final_project_mobile.activity.PlayActivity;
 
 import android.content.Context;
 
-import nguyenanhduc.mobileapp.final_project_mobile.database.DatabaseHelper;
+import nguyenanhduc.mobileapp.final_project_mobile.database.SQLiteHelper;
 import nguyenanhduc.mobileapp.final_project_mobile.dao.CommunityChestCardDao;
 
 public class CommunityChest extends City {
@@ -39,7 +39,7 @@ public class CommunityChest extends City {
     @RequiresApi(api = Build.VERSION_CODES.N)
     public CommunityChest(int position, String cityName, Context context) {
         super(position, cityName, 0);
-        DatabaseHelper dbHelper = DatabaseHelper.getInstance(context);
+        SQLiteHelper dbHelper = SQLiteHelper.getInstance(context);
         cardDao = new CommunityChestCardDao(dbHelper);
         loadCardsFromDatabase();
     }
@@ -102,26 +102,18 @@ public class CommunityChest extends City {
             public void onDismiss(DialogInterface dialogInterface) {System.out.println(card);
                 try {
                     card.callFunction();
-                } catch (NoSuchMethodException ex) {
-                    Logger.getLogger(Chance.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (IllegalAccessException ex) {
-                    Logger.getLogger(Chance.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (IllegalArgumentException ex) {
-                    Logger.getLogger(Chance.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (InvocationTargetException ex) {
-                    Logger.getLogger(Chance.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (InvocationTargetException e) {
+                    throw new RuntimeException(e);
+                } catch (NoSuchMethodException e) {
+                    throw new RuntimeException(e);
+                } catch (IllegalAccessException e) {
+                    throw new RuntimeException(e);
                 }
                 if(iter == 15)
                     iter = 0;
             }
         });
 
-    }
-
-    public static void printCards()
-    {
-        for( CommunityChestCard card : cards)
-            System.out.println(card);
     }
 }
 

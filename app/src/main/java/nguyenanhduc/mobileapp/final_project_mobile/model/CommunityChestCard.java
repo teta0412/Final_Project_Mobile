@@ -63,45 +63,8 @@ public class CommunityChestCard {
 
     public void CommunityChestCard3()
     {
-        System.out.println("Choose\n1.Pay Fine $10 or\n2.Take a Chance Card");
-        LinkedList<String> choiceList = new LinkedList<String>();
-        choiceList.add("1.Pay Fine $10");
-        choiceList.add("2.Take A Chance Card");
-        final PlayActivity playActivity = (PlayActivity)PlayActivity.getInstance();
-        if(visitor instanceof Computer)
-        {
-            choice = (new Random().nextInt(10)%2)+1;
-            playActivity.showNotification(visitor,"Chose "+choiceList.get(choice));
-            if(choice == 1)
-            {
-                visitor.payBank(10);
-                PlayActivity.onCompleteListener.OnComplete(visitor);
-            }
-            else if(choice == 2)
-            {
-                Chance chance = (Chance) Board.getCities().get(7);
-                chance.takeCard(visitor);
-            }
-        }
-        else
-        {
-            playActivity.showChoices(choiceList, visitor, new DialogInterface.OnDismissListener() {
-                @Override
-                public void onDismiss(DialogInterface dialogInterface) {
-                    choice = playActivity.choiceSelected;
-                    if(choice == 1)
-                    {
-                        visitor.payBank(10);
-                        PlayActivity.onCompleteListener.OnComplete(visitor);
-                    }
-                    else if(choice == 2)
-                    {
-                        Chance chance = (Chance) Board.getCities().get(7);
-                        chance.takeCard(visitor);
-                    }
-                }
-            });
-        }
+        visitor.payBank(10);
+        PlayActivity.onCompleteListener.OnComplete(visitor);
 
     }
 

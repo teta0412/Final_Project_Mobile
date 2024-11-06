@@ -365,12 +365,7 @@ public class Player {
     public void checkforSameGroup(Property property) {
 
         int color = property.getColorId();
-        if((property instanceof Station))
-        {
-            this.ownedStations ++;
-            upStations();
-        }
-        else if((property instanceof Utilities))
+        if((property instanceof Utilities))
         {
             this.ownedUtilities ++;
             upUtilities();
@@ -412,20 +407,6 @@ public class Player {
                 }
             }
 
-        }
-    }
-
-    public void upStations() {
-        ListIterator iterator = ownedProperties.listIterator();
-        while(iterator.hasNext())
-        {
-            Property currentCity = (Property)iterator.next();
-            if(currentCity instanceof Station)
-            {
-                Station station = (Station)currentCity;
-                if(ownedStations > 1)
-                    station.doubleRent(this.ownedStations);
-            }
         }
     }
 

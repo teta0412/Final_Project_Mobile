@@ -60,7 +60,6 @@ import nguyenanhduc.mobileapp.final_project_mobile.model.Property;
 import nguyenanhduc.mobileapp.final_project_mobile.adapter.PropertyAdapter;
 import nguyenanhduc.mobileapp.final_project_mobile.R;
 import nguyenanhduc.mobileapp.final_project_mobile.config.SizeDisplay;
-import nguyenanhduc.mobileapp.final_project_mobile.model.Station;
 import nguyenanhduc.mobileapp.final_project_mobile.model.Utilities;
 
 
@@ -145,11 +144,7 @@ public class PlayActivity extends AppCompatActivity implements OnClickListener, 
             noPlayers = names.size();
             board.addPlayers(names);
         }
-
-
         RelativeLayout relativeLayout = findViewById(R.id.relativelayout);
-
-
         if (noPlayers == 2) {
             relativeLayout.removeView(findViewById(R.id.coin3));
             relativeLayout.removeView(findViewById(R.id.coin4));
@@ -1276,24 +1271,7 @@ public class PlayActivity extends AppCompatActivity implements OnClickListener, 
     public void showTitleDeed(Player player, final Property property,Dialog.OnDismissListener callBack) {
         final Dialog titleDeed = new Dialog(PlayActivity.this);
 
-        if(property instanceof Station)
-        {
-            titleDeed.setContentView(R.layout.station_titledeed);
-            TextView name = titleDeed.findViewById(R.id.name);
-            TextView rent = titleDeed.findViewById(R.id.rent);
-            TextView station_2_rent = titleDeed.findViewById(R.id.station2);
-            TextView station_3_rent = titleDeed.findViewById(R.id.station3);
-            TextView station_4_rent = titleDeed.findViewById(R.id.station4);
-            TextView mortgage = titleDeed.findViewById(R.id.mortgage);
-
-            name.setText(property.getCityName().toUpperCase());
-            rent.setText("$"+property.getPrimaryRent());
-            station_2_rent.setText("$"+property.getHouse1Rent());
-            station_3_rent.setText("$"+property.getHouse2Rent());
-            station_4_rent.setText("$"+property.getHouse3Rent());
-            mortgage.setText("Mortgage Value - $"+property.getMortgage());
-        }
-        else if(property instanceof Utilities)
+        if(property instanceof Utilities)
         {
             titleDeed.setContentView(R.layout.utility_titledeed);
             ImageView logo = titleDeed.findViewById(R.id.logo);
@@ -1369,7 +1347,6 @@ public class PlayActivity extends AppCompatActivity implements OnClickListener, 
             titleDeed.setOnDismissListener(callBack);
         }
     }
-
 
     @Override
     public void onDestroy() {
